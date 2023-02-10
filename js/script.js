@@ -47,6 +47,12 @@ function generateTitleLinks(customSelector = "") {
   }
 }
 generateTitleLinks();
+function calculateTagParams(tags) {
+  console.log(tags);
+
+  for (let tag in tags) {
+  }
+}
 
 function generateTags() {
   let allTags = {};
@@ -70,7 +76,10 @@ function generateTags() {
   const tagList = document.querySelector(optTagsListSelector);
   let allTagsHtml = "";
   for (let tag in allTags) {
-    allTagsHtml += '<a href="#' + tag + '">' + tag + "(" + allTags[tag] + ")";
+    const tagParams = calculateTagParams(allTags);
+    console.log(tagParams);
+    allTagsHtml +=
+      '<a href="#' + tag + '">' + tag + "(" + allTags[tag] + ")" + "<br>";
   }
   tagList.innerHTML = allTagsHtml;
 }
